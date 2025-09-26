@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Path Generator - Path Progress Map</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* CSS specific to the Path Progress Map page */
+        .progress-container {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .path-timeline {
+            position: relative;
+            padding: 20px 0;
+            margin-left: 50px; /* Space for the line and dots */
+        }
+
+        /* The main vertical line of the path */
+        .path-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -20px;
+            width: 4px;
+            background-color: #ddd;
+        }
+
+        /* Colored line segment for completed portion */
+        .path-timeline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 40%; /* Mocking the 40% completion height */
+            left: -20px;
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .module-unit {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .unit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            left: -50px;
+            top: 0;
+            z-index: 2;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Completed Unit Styles */
+        .module-unit.completed .unit-icon {
+            background-color: var(--primary-color);
+            border: 4px solid #fff;
+        }
+
+        /* Active Unit Styles (Popping/Duolingo effect) */
+        .module-unit.active .unit-icon {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: 4px solid var(--primary-color);
+            transform: scale(1.15); /* Popping out effect */
+            animation: pulse-active 1.5s infinite alternate;
+        }
+
+        /* Locked Unit Styles */
+        .module-unit.locked .unit-icon {
+            background-color: #555;
+            border: 4px solid #333;
+            color: #ccc;
+        }
+        
+        @keyframes pulse-active {
+            0% { box-shadow: 0 0 0 0 rgba(12, 39, 66, 0.5); } 
+            100% { box-shadow: 0 0 10px 5px rgba(50, 20, 2, 0.8); }
+        }
+
+        .unit-details {
+            background-color: var(--card-background);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+
+        .unit-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .badge-current { background-color: var(--accent-color); color: var(--text-color); padding: 4px 8px; border-radius: 4px; font-weight: 600; margin-top: 10px; display: inline-block; }
+        .badge-completed { background-color: #e8f5e9; color: #4caf50; padding: 4px 8px; border-radius: 4px; font-weight: 600; margin-top: 10px; display: inline-block; }
+        .badge-locked { background-color: #fce4ec; color: #e91e63; padding: 4px 8px; border-radius: 4px; font-weight: 600; margin-top: 10px; display: inline-block; }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">AI PathGen</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="path-progress.html" class="active">Progress Map</a></li> 
+                <li><a href="recommendation.html">Recommendation</a></li> 
+                <li><a href="features.html">Features</a></li>
+                <li><a href="nsqf.html">NSQF</a></li>
+                <li><a href="survey.html">Survey</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="signup.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Signup</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Personalized Path Progress: Junior Full Stack</h2>
+            <p style="text-align: center; color: #555;">Follow the modules below. Complete the active unit to unlock the next level.</p>
+
+            <div class="progress-container">
+                <div class="path-timeline">
+
+                    <div class="module-unit completed">
+                        <div class="unit-icon">✓</div>
+                        <div class="unit-details">
+                            <h4>Unit 1: Core Web Fundamentals</h4>
+                            <p>HTML Structure, CSS Styling, Basic Responsive Design.</p>
+                            <span class="badge-completed">Completed: 100%</span>
+                        </div>
+                    </div>
+
+                    <div class="module-unit completed">
+                        <div class="unit-icon">✓</div>
+                        <div class="unit-details">
+                            <h4>Unit 2: JavaScript Mastery</h4>
+                            <p>ES6 Syntax, DOM Manipulation, Asynchronous Code (Promises).</p>
+                            <span class="badge-completed">Completed: 100%</span>
+                        </div>
+                    </div>
+
+                    <div class="module-unit active">
+                        <div class="unit-icon" style="color: white; background-color: var(--accent-color);">🌟</div>
+                        <div class="unit-details">
+                            <h4>Unit 3: Backend & APIs (CURRENT)</h4>
+                            <p>**Goal:** Set up Node.js with Express, implement RESTful routing, and connect to MongoDB.</p>
+                            <span class="badge-current">In Progress: 40%</span>
+                            <a href="#" style="text-decoration: none; color: var(--primary-color); margin-left: 15px;">➡️ Start Lesson</a>
+                        </div>
+                    </div>
+
+                    <div class="module-unit locked">
+                        <div class="unit-icon">🔒</div>
+                        <div class="unit-details">
+                            <h4>Unit 4: Frontend Frameworks (React)</h4>
+                            <p>Build reusable components and master state management with Redux.</p>
+                            <span class="badge-locked">Locked (Requires Unit 3)</span>
+                        </div>
+                    </div>
+
+                    <div class="module-unit locked">
+                        <div class="unit-icon">🔒</div>
+                        <div class="unit-details">
+                            <h4>Unit 5: Deployment & NSQF Level 6</h4>
+                            <p>Continuous Integration (CI/CD) and Capstone Project Submission.</p>
+                            <span class="badge-locked">Locked</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI PathGen. All rights reserved.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
