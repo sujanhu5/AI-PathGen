@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Path Generator - Learning Survey</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">AI PathGen</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="recommendation.html">Recommendation</a></li>
+                <li><a href="nsqf.html">NSQF</a></li>
+                <li><a href="survey.html" class="active">Survey</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="signup.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Signup</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h2>Personalized Path Survey</h2>
+                <p>Help our AI generate the perfect path by answering a few strategic questions.</p>
+                <form id="survey-form">
+                    <div class="form-group">
+                        <label for="income">Monthly Learning Budget (or Spending Capacity)</label>
+                        <select id="income" name="income" required>
+                            <option value="">Select Range</option>
+                            <option value="low">Below ₹1,000 (Free resources only)</option>
+                            <option value="medium">₹1,000 - ₹5,000 (Mix of free/paid)</option>
+                            <option value="high">₹5,000 - ₹15,000 (Premium courses/certifications)</option>
+                            <option value="very-high">Above ₹15,000 (Bootcamps/Higher Education)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills">Prior Skills & Experience (Comma separated)</label>
+                        <textarea id="skills" name="skills" rows="3" placeholder="e.g., Python Basics, Customer Service, Canva Design, Team Leadership"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aspiration">Target Career Aspiration</label>
+                        <input type="text" id="aspiration" name="aspiration" required placeholder="e.g., Data Scientist, Digital Marketing Manager, Electrician">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeframe">Target Time Frame to Achieve Goal</label>
+                        <select id="timeframe" name="timeframe" required>
+                            <option value="">Select Time</option>
+                            <option value="6months">Under 6 Months (Fast Track)</option>
+                            <option value="1year">6 Months to 1 Year (Standard Pace)</option>
+                            <option value="2years">1 to 2 Years (Comprehensive)</option>
+                            <option value="3+years">3+ Years (Long-term Education)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Generate My Path!</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI PathGen. All rights reserved.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

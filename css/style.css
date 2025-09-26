@@ -1,0 +1,368 @@
+/* css/style.css */
+
+/* Global Styles */
+:root {
+    --primary-color: #5C6BC0; /* Indigo */
+    --secondary-color: #8D9EEF; /* Lighter Indigo */
+    --accent-color: #FFC107; /* Amber/Gold for highlights */
+    --text-color: #333;
+    --background-color: #F4F6F9;
+    --card-background: #FFFFFF;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--card-background);
+    box-shadow: var(--shadow);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    color: var(--card-background);
+    background-color: var(--primary-color);
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-buttons .login-btn {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.auth-buttons .signup-btn {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+}
+
+.auth-buttons .login-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--card-background);
+}
+
+/* Main Content Styles */
+main {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    padding-top: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+section {
+    padding: 40px 0;
+}
+
+/* Forms (Signup, Survey) */
+.form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #4B59A7;
+}
+
+/* Card Styles (Recommendation, Features) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.card ul li:last-child {
+    border-bottom: none;
+}
+
+/* NSQF Page Styles */
+.nsqf-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.nsqf-table th, .nsqf-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.nsqf-table th {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    font-weight: 600;
+}
+
+.nsqf-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.nsqf-level-bar {
+    margin-top: 40px;
+}
+
+.level-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--card-background);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.level-item h4 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.user-skill-card {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-top: 30px;
+    text-align: center;
+}
+/* Features Page - Gamification */
+.feature-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.streak-visual {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border: 5px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.streak-visual span {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.email-visual {
+    background-color: #e0f7fa; /* Light cyan */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    text-align: left;
+    border: 1px solid #b2ebf2;
+}
+
+.email-visual h4 {
+    color: #00bcd4; /* Cyan */
+    margin-bottom: 10px;
+}
+
+.email-visual p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Feature Animations */
+.animated-feature {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.animated-feature:hover {
+    transform: rotate(2deg) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Simple hamburger menu simulation */
+    }
+    nav {
+        flex-wrap: wrap;
+    }
+    .auth-buttons {
+        margin-top: 10px;
+    }
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .nsqf-table th, .nsqf-table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+    .nsqf-table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .nsqf-table th {
+        display: none;
+    }
+}
